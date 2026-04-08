@@ -1,0 +1,13 @@
+spin:
+  location: null
+
+rewards:
+  reward1:
+    command: "eco give %player% 1000"
+    chance: 50
+    rarity: common
+
+  reward2:
+    command: "lp user %player% parent add vip"
+    chance: 10
+    rarity: legendary

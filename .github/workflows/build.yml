@@ -1,0 +1,28 @@
+name: Build Plugin
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Build
+        run: mvn clean package
+
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: SpinMaster
+          path: target/*.jar
